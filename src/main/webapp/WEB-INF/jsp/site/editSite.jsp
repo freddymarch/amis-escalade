@@ -23,8 +23,6 @@
 
         <input type="submit" class="btn btn-success" value="Modifier"/>
         <input type="reset" class="btn btn-danger" value="Reset"/>
-        <a class="btn btn-danger" href="/sites">Cancel</a>
-
 
     </form:form>
 

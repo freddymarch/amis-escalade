@@ -1,11 +1,14 @@
 package com.openclassrooms.amisescalade.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "T_SITE")
@@ -27,6 +30,32 @@ public class Site {
 
     @Column(name = "C_SITE_ADRESSE",length = 100, nullable = false)
     private String adresse;
+
+    @OneToMany(mappedBy = "site", cascade = CascadeType.ALL)
+    private List<Secteur> secteurs;
+
+    @OneToMany(mappedBy = "site", cascade = CascadeType.ALL)
+    private List<Commentaire> commentaires;
+
+    public List<Commentaire> getCommentaires() {
+        return commentaires;
+    }
+
+    public void setCommentaires(List<Commentaire> commentaires) {
+        this.commentaires = commentaires;
+    }
+
+    public int nbSecteurs() {
+        return secteurs.size();
+    }
+
+    public List<Secteur> getSecteurs() {
+        return secteurs;
+    }
+
+    public void setSecteurs(List<Secteur> secteurs) {
+        this.secteurs = secteurs;
+    }
 
     public long getId() {
         return id;

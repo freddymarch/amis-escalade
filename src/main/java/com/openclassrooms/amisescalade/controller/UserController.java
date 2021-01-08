@@ -61,6 +61,7 @@ public class UserController {
 
     @PostMapping(value = "/login")
     public ModelAndView loginPost(Model model, @ModelAttribute("user") User user) {
-        return new ModelAndView("redirect:/sites");
+        return new ModelAndView("redirect:/index");
     }
+
 }

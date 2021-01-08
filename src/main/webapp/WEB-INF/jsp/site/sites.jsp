@@ -22,6 +22,7 @@
               <td>${site.adresse}</td>
        <th><a href="editSite/${site.id}" class="btn btn-success">Modifier</a></th>
        <th><a href="deleteSite/${site.id}" class="btn btn-success">suprimer</a></th>
+       <th><a href="site/${site.id}" class="btn btn-success">site</a></th>
    </tr>
        </TR>
        </c:forEach>

@@ -1,65 +1,120 @@
 package com.openclassrooms.amisescalade.controller;
 
+import com.openclassrooms.amisescalade.model.Commentaire;
 import com.openclassrooms.amisescalade.model.Site;
+import com.openclassrooms.amisescalade.model.User;
+import com.openclassrooms.amisescalade.service.CommentaireService;
+import com.openclassrooms.amisescalade.service.SecteurService;
 import com.openclassrooms.amisescalade.service.SiteService;
+import com.openclassrooms.amisescalade.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class SiteController {
 
-    @Autowired
-    SiteService siteService;
-
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
+    @Autowired
+    private SiteService siteService;
+
+    @Autowired
+    private SecteurService secteurService;
+
+    @Autowired
+    private CommentaireService commentaireService;
+
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/sites")
     public String sites(Model model) {
-        model.addAttribute("sites", siteService.rechercherTousLesSites());
-        return "/sites";
+        model.addAttribute("sites", siteService.searchAllSites());
+        return "/site/sites";
     }
 
     @GetMapping("/site/{id}")
-    public String site(Model model, @PathVariable Long id) {
-        model.addAttribute("site", siteService.rechercherSiteParId(id));
-        return "/site";
+    public String secteur(Model model, @PathVariable Long id) {
+        model.addAttribute("site", siteService.searchSiteid(id));
+        model.addAttribute("secteur", secteurService.searchAllSecteur());
+        model.addAttribute("commentaire",commentaireService.searchAllCommentaire());
+        return "/site/site";
     }
 
     @GetMapping("/addSite")
     public String addSite(Model model) {
         model.addAttribute("site", new Site());
-        return "/addSite";
+        return "/site/addSite";
     }
 
     @PostMapping("/addSite")
     public String addSite(@ModelAttribute("site") Site site) {
         logger.info(" UN nouveau site : " + site.getNom() + " " + site.getPays() + " " + site.getAdresse() + " " + site.getTag());
         siteService.addSite(site);
-        return "/index";
+        return "redirect:/sites";
     }
 
     @GetMapping("/editSite/{id}")
     public String recoverSite(Model model, @PathVariable Long id) {
-        model.addAttribute("site", siteService.rechercherSiteParId(id));
-        return "/editSite";
+        model.addAttribute("site", siteService.searchSiteid(id));
+        return "/site/editSite";
     }
 
     @PostMapping("/editSite")
-    public String modifierSite(@ModelAttribute("site") Site site) {
+    public String editSite(@ModelAttribute("site") Site site) {
         siteService.editSite(site);
         return "redirect:/sites";
     }
 
-    @GetMapping("/deleteSite/{siteId}")
-    public String deleteSite(Model model, @PathVariable Long Id) {
-        siteService.deleteSite(Id);
-        return "/sites";
+    @GetMapping("/deleteSite/{id}")
+    public String deleteSite(Model model, @PathVariable Long id) {
+        siteService.deleteSite(id);
+        return "redirect:/sites";
+    }
+
+    @GetMapping("/addCommentaire")
+    public String addCommentaire(Model model, @RequestParam Long idSite) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
+        model.addAttribute("user", user);
+        //Site site = siteService.rechercherSiteParId(siteId);
+        //model.addAttribute("site", site);
+
+        model.addAttribute("commentaire", commentaireService.siteId(siteService.searchSiteid(idSite)));
+        return "/commentaire/addCommentaire";
+    }
+
+    @PostMapping("/addCommentaire")
+    public String addCommentaire(@ModelAttribute("commentaire") Commentaire commentaire) {
+        commentaireService.addCommentaire(commentaire);
+        return "redirect:/sites";
+    }
+
+    @GetMapping("/editCommentaire/{id}")
+    public String recoverCommentaire(Model model, @PathVariable Long id) {
+        model.addAttribute("commentaire", commentaireService.searchCommentaireid(id));
+        return "/commentaire/editCommentaire";
+    }
+
+    @PostMapping("/editCommentaire")
+    public String editCommentaire(@ModelAttribute("commentaire") Commentaire commentaire) {
+        commentaireService.editCommentaire(commentaire);
+        return "redirect:/sites";
+    }
+
+    @GetMapping("/deleteCommentaire/{id}")
+    public String deleteCommentaire(Model model, @PathVariable Long id) {
+        commentaireService.deleteCommentaire(id);
+        return "redirect:/sites";
     }
 }

@@ -1,7 +1,10 @@
 package com.openclassrooms.amisescalade.service.impl;
 
 import com.openclassrooms.amisescalade.model.Site;
+import com.openclassrooms.amisescalade.model.User;
+import com.openclassrooms.amisescalade.repository.CommentaireRepository;
 import com.openclassrooms.amisescalade.repository.SiteRepository;
+import com.openclassrooms.amisescalade.repository.UserRepository;
 import com.openclassrooms.amisescalade.service.SiteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,19 +20,24 @@ public class SiteServiceImpl implements SiteService {
     @Autowired
     SiteRepository siteRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    CommentaireRepository commentaireRepository;
+
     @Override
-    public Site rechercherSiteParId(Long id) {
+    public List<Site> searchAllSites() {
+        return siteRepository.findAll();
+    }
+
+    @Override
+    public Site searchSiteid(Long id) {
         Optional<Site> optionalSite = siteRepository.findById(id);
         if (optionalSite.isPresent()) {
             return optionalSite.get();
         }
         return null;
-    }
-
-    @Override
-    public List<Site> rechercherTousLesSites() {
-
-        return siteRepository.findAll();
     }
 
     @Override
@@ -44,9 +52,8 @@ public class SiteServiceImpl implements SiteService {
     }
 
     @Override
-    public void deleteSite(Long Id) {
-
-        siteRepository.deleteById(Id);
+    public void deleteSite(Long id) {
+        siteRepository.deleteById(id);
     }
 
 }
