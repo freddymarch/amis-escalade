@@ -1,7 +1,6 @@
 package com.openclassrooms.amisescalade.controller;
 
 import com.openclassrooms.amisescalade.model.Secteur;
-import com.openclassrooms.amisescalade.model.Site;
 import com.openclassrooms.amisescalade.service.SecteurService;
 import com.openclassrooms.amisescalade.service.SiteService;
 import org.slf4j.Logger;
@@ -18,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class SecteurController {
 
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+    private static final Logger logger = LoggerFactory.getLogger(SecteurController.class);
+    private static final String SECTEUR = "secteur";
 
     @Autowired
     private SecteurService secteurService;
@@ -28,20 +28,20 @@ public class SecteurController {
 
     @GetMapping("/addSecteur")
     public String addSecteur(Model model, @RequestParam Long id) {
-        model.addAttribute("Secteur", secteurService.siteId(siteService.searchSiteid(id)));
+        model.addAttribute(SECTEUR, secteurService.siteId(siteService.searchSiteid(id)));
         return "/secteur/addSecteur";
     }
 
     @PostMapping("/addSecteur")
     public String addSecteur(@ModelAttribute("secteur") Secteur secteur) {
-        logger.info(" UN nouveau secteur : ");
+        logger.info("Création d'un nouveau secteur : {}", secteur);
         secteurService.addSecteur(secteur);
         return "redirect:/sites";
     }
 
     @GetMapping("/editSecteur/{id}")
     public String recoverSecteur(Model model, @PathVariable Long id) {
-        model.addAttribute("secteur", secteurService.searchSecteurId(id));
+        model.addAttribute(SECTEUR, secteurService.searchSecteurId(id));
         return "/secteur/editSecteur";
     }
 
@@ -52,7 +52,7 @@ public class SecteurController {
     }
 
     @GetMapping("/deleteSecteur/{id}")
-    public String deleteSecteur(Model model, @PathVariable Long id) {
+    public String deleteSecteur(@PathVariable Long id) {
         secteurService.deleteSecteur(id);
         return "redirect:/sites";
     }

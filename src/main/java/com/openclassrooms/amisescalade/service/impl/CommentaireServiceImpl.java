@@ -2,7 +2,6 @@ package com.openclassrooms.amisescalade.service.impl;
 
 
 import com.openclassrooms.amisescalade.model.Commentaire;
-import com.openclassrooms.amisescalade.model.Secteur;
 import com.openclassrooms.amisescalade.model.Site;
 import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.repository.CommentaireRepository;
@@ -20,7 +19,6 @@ public class CommentaireServiceImpl implements CommentaireService {
 
     @Autowired
     CommentaireRepository commentaireRepository;
-
 
     @Override
     public Commentaire siteId(Site site) {
@@ -42,18 +40,15 @@ public class CommentaireServiceImpl implements CommentaireService {
     }
 
     @Override
-    public Commentaire searchCommentaireid(Long id) {
+    public Commentaire searchCommentaireById(Long id) {
         Optional<Commentaire> optionalCommentaire = commentaireRepository.findById(id);
-        if (optionalCommentaire.isPresent()) {
-            return optionalCommentaire.get();
-        }
-        return null;
+        return optionalCommentaire.isPresent() ? optionalCommentaire.get() : null;
     }
 
     @Override
-    public Optional<String> addCommentaire(Commentaire commentaire) {
+    public void addCommentaire(Commentaire commentaire) {
+        // TODO : Vérifier que le commentaire est valide avant de l'insérer en bdd
         commentaireRepository.save(commentaire);
-        return Optional.empty();
     }
 
     @Override

@@ -61,6 +61,10 @@ public class User implements Serializable, UserDetails {
         return role;
     }
 
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public List<Commentaire> getCommentaires() {
         return commentaires;
     }
@@ -71,10 +75,6 @@ public class User implements Serializable, UserDetails {
 
     public Role getRole(String s) {
         return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
     public long getId() {
@@ -118,6 +118,10 @@ public class User implements Serializable, UserDetails {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String getUsername() {
         return email;
@@ -125,26 +129,22 @@ public class User implements Serializable, UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        return true;
     }
 
     @Override

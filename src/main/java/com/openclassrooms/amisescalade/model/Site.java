@@ -19,16 +19,16 @@ public class Site {
     @Column(name = "C_ID")
     private long id;
 
-    @Column(name = "C_SITE_NAME",length = 50, nullable = false)
+    @Column(name = "C_SITE_NAME", length = 50, nullable = false)
     private String nom;
 
-    @Column(name = "C_SITE_TAG",length = 100, nullable = false)
+    @Column(name = "C_SITE_TAG", length = 100, nullable = false)
     private String tag;
 
-    @Column(name = "C_SITE_LOC_PAYS",length = 100, nullable = false)
+    @Column(name = "C_SITE_LOC_PAYS", length = 100, nullable = false)
     private String pays;
 
-    @Column(name = "C_SITE_ADRESSE",length = 100, nullable = false)
+    @Column(name = "C_SITE_ADRESSE", length = 100, nullable = false)
     private String adresse;
 
     @OneToMany(mappedBy = "site", cascade = CascadeType.ALL)

@@ -1,6 +1,5 @@
 package com.openclassrooms.amisescalade.service.impl;
 
-import com.openclassrooms.amisescalade.controller.UserController;
 import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.repository.RoleRepository;
 import com.openclassrooms.amisescalade.repository.UserRepository;
@@ -22,23 +21,20 @@ import java.util.Optional;
 @Transactional
 public class UserServiceImpl implements UserService {
 
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     @Autowired
     private UserRepository userRepository;
-
     @Autowired
     private RoleRepository roleRepository;
-
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-
     @Override
-    public Optional<String> addUser(User user)  {
+    public Optional<String> addUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole(roleRepository.findByCode("Member"));
         userRepository.save(user);
-        return  Optional.empty();
+        return Optional.empty();
     }
 
     @Override

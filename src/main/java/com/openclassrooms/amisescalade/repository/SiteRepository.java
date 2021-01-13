@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface SiteRepository extends JpaRepository<Site,Integer> {
+public interface SiteRepository extends JpaRepository<Site, Integer> {
 
     Optional<Site> findById(long id);
 

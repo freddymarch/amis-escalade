@@ -1,7 +1,6 @@
 package com.openclassrooms.amisescalade.service;
 
 import com.openclassrooms.amisescalade.model.Commentaire;
-import com.openclassrooms.amisescalade.model.Secteur;
 import com.openclassrooms.amisescalade.model.Site;
 import com.openclassrooms.amisescalade.model.User;
 
@@ -16,9 +15,9 @@ public interface CommentaireService {
 
     List<Commentaire> searchAllCommentaire();
 
-    Commentaire searchCommentaireid(Long id);
+    Commentaire searchCommentaireById(Long id);
 
-    Optional<String> addCommentaire(Commentaire commentaire);
+    void addCommentaire(Commentaire commentaire);
 
     void editCommentaire(Commentaire commentaire);
 

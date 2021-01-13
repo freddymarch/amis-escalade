@@ -21,6 +21,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserService userService;
 
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf()
@@ -28,7 +33,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationProvider(getProvider())
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/").failureUrl("/login?error=loginError")
+                .defaultSuccessUrl("/").failureUrl("/login?error=true")
                 .and()
                 .logout()
                 .logoutUrl("/logout")
@@ -42,11 +47,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll();
     }
 
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userService);
@@ -55,13 +55,8 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public AuthenticationProvider getProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userService);
         authProvider.setPasswordEncoder(passwordEncoder());
+        authProvider.setUserDetailsService(userService);
         return authProvider;
-
-//        AppAuthProvider provider = new AppAuthProvider();
-//        provider.setUserDetailsService(userService);
-//        provider.setPasswordEncoder(passwordEncoder());
-//        return provider;
     }
 }

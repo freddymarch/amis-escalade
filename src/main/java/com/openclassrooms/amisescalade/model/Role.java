@@ -18,7 +18,7 @@ public class Role implements GrantedAuthority {
     @Column(name = "C_ID")
     private Long id;
 
-    @Column(name="C_CODE")
+    @Column(name = "C_CODE")
     private String code;
 
     @Column(name = "C_LABEL")
