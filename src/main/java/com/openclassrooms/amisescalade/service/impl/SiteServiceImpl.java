@@ -1,7 +1,6 @@
 package com.openclassrooms.amisescalade.service.impl;
 
 import com.openclassrooms.amisescalade.model.Site;
-import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.repository.CommentaireRepository;
 import com.openclassrooms.amisescalade.repository.SiteRepository;
 import com.openclassrooms.amisescalade.repository.UserRepository;

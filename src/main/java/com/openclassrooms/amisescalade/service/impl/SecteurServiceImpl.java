@@ -40,9 +40,9 @@ public class SecteurServiceImpl implements SecteurService {
     }
 
     @Override
-    public Optional<String> addSecteur(Secteur secteur)  {
+    public Optional<String> addSecteur(Secteur secteur) {
         secteurRepository.save(secteur);
-        return  Optional.empty();
+        return Optional.empty();
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.openclassrooms.amisescalade.service;
 
-import com.openclassrooms.amisescalade.model.Site;
 import com.openclassrooms.amisescalade.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
