@@ -18,6 +18,7 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "T_USER")
@@ -42,7 +43,18 @@ public class User implements Serializable, UserDetails {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Commentaire> commentaires;
 
+    @OneToMany(mappedBy = "userWithTopo")
+    private Set<Topo> userWithTopo;
+
     public User() {
+    }
+
+    public Set<Topo> getUserWithTopo() {
+        return userWithTopo;
+    }
+
+    public void setUserWithTopo(Set<Topo> userWithTopo) {
+        this.userWithTopo = userWithTopo;
     }
 
     public Role getRole() {
