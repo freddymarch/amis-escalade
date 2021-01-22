@@ -19,7 +19,7 @@ public class Commentaire {
     @Column(name = "C_ID")
     private long id;
 
-    @Column(name = "C_DATE")
+    @Column(name = "C_DATE",length = 50, nullable = false)
     private Date date;
 
     @Column(name = "C_COMMENTAIRE")

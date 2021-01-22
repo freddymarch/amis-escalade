@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <html>
@@ -21,8 +22,10 @@
               <td>${site.nom}</td>
               <td>${site.pays}</td>
               <td>${site.adresse}</td>
+       <sec:authorize access="hasAnyRole('MEMBER')">
        <th><a href="editSite/${site.id}" class="btn btn-success">Modifier</a></th>
        <th><a href="deleteSite/${site.id}" class="btn btn-success">suprimer</a></th>
+       </sec:authorize>
        <th><a href="site/${site.id}" class="btn btn-success">site</a></th>
    </tr>
        </TR>

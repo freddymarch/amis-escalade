@@ -1,5 +1,6 @@
 package com.openclassrooms.amisescalade.service.impl;
 
+import com.openclassrooms.amisescalade.model.Secteur;
 import com.openclassrooms.amisescalade.model.Site;
 import com.openclassrooms.amisescalade.repository.CommentaireRepository;
 import com.openclassrooms.amisescalade.repository.SiteRepository;
@@ -26,32 +27,28 @@ public class SiteServiceImpl implements SiteService {
     CommentaireRepository commentaireRepository;
 
     @Override
-    public List<Site> searchAllSites() {
+    public List<Site> findAll() {
         return siteRepository.findAll();
     }
 
     @Override
-    public Site searchSiteid(Long id) {
+    public Site findById(Long id) {
         Optional<Site> optionalSite = siteRepository.findById(id);
-        if (optionalSite.isPresent()) {
-            return optionalSite.get();
-        }
-        return null;
+        return optionalSite.isPresent() ? optionalSite.get() : null;
     }
 
     @Override
-    public Optional<String> addSite(Site site) {
-        siteRepository.save(site);
-        return Optional.empty();
-    }
-
-    @Override
-    public void editSite(Site site) {
+    public void add(Site site)  {
         siteRepository.save(site);
     }
 
     @Override
-    public void deleteSite(Long id) {
+    public void edit(Site site) {
+        siteRepository.save(site);
+    }
+
+    @Override
+    public void delete(Long id) {
         siteRepository.deleteById(id);
     }
 

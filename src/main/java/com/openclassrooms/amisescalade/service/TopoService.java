@@ -8,14 +8,14 @@ import java.util.List;
 
 public interface TopoService {
 
-    List<Topo> searchAllTopo();
+    List<Topo> findAll();
 
-    Topo searchTopoid(Long id);
+    Topo findById(Long id);
 
-    void addTopo(Topo topo);
+    void add(Topo topo);
 
-    void editTopo(Topo topo);
+    void edit(Topo topo);
 
-    void deleteTopo(Long topoId);
+    void delete(Long topoId);
 
 }

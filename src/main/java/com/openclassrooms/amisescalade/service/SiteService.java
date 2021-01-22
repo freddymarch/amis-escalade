@@ -7,13 +7,13 @@ import java.util.Optional;
 
 public interface SiteService {
 
-    List<Site> searchAllSites();
+    List<Site> findAll();
 
-    Site searchSiteid(Long id);
+    Site findById(Long id);
 
-    Optional<String> addSite(Site site);
+    void add(Site site);
 
-    void editSite(Site site);
+    void edit(Site site);
 
-    void deleteSite(Long siteId);
+    void delete(Long siteId);
 }

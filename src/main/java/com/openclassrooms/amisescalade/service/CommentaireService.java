@@ -13,13 +13,13 @@ public interface CommentaireService {
 
     Commentaire userId(User user);
 
-    List<Commentaire> searchAllCommentaire();
+    List<Commentaire> findAll();
 
-    Commentaire searchCommentaireById(Long id);
+    Commentaire findById(Long id);
 
-    void addCommentaire(Commentaire commentaire);
+    void add(Commentaire commentaire);
 
-    void editCommentaire(Commentaire commentaire);
+    void edit(Commentaire commentaire);
 
-    void deleteCommentaire(Long Id);
+    void delete(Long Id);
 }

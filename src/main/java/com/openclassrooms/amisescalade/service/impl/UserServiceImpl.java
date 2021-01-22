@@ -1,5 +1,6 @@
 package com.openclassrooms.amisescalade.service.impl;
 
+import com.openclassrooms.amisescalade.model.Topo;
 import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.repository.RoleRepository;
 import com.openclassrooms.amisescalade.repository.UserRepository;
@@ -22,6 +23,7 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -38,23 +40,26 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> searchAllUser() {
+    public List<User> findAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public User searchUserid(Long id) {
+    public User findById(Long id) {
         Optional<User> optionalUser = userRepository.findById(id);
-        if (optionalUser.isPresent()) {
-            return optionalUser.get();
-        }
-        return null;
+        return optionalUser.isPresent() ? optionalUser.get() : null;
     }
 
     @Override
     public User findUserByEmail(String email) {
         Optional<User> optionalUser = userRepository.findByEmail(email);
         return optionalUser.isPresent() ? optionalUser.get() : null;
+    }
+
+    @Override
+    public User fundUserByName(String name) {
+        Optional<User> optionalUser = userRepository.findByName(name);
+        return null;
     }
 
     @Override

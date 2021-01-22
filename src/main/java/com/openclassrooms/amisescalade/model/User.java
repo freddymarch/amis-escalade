@@ -36,25 +36,36 @@ public class User implements Serializable, UserDetails {
     @Column(name = "C_PASSWORD", length = 100, nullable = false)
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "C_ROLE_ID", nullable = false)
     private Role role;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch=FetchType.EAGER)
     private List<Commentaire> commentaires;
 
-    @OneToMany(mappedBy = "userWithTopo")
+    @OneToMany(mappedBy = "userWithTopo",cascade = CascadeType.ALL,fetch=FetchType.EAGER)
     private Set<Topo> userWithTopo;
+
+    @OneToMany(mappedBy = "users",cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+    private Set<Secteur> secteurs;
+
 
     public User() {
     }
 
-    public Set<Topo> getUserWithTopo() {
-        return userWithTopo;
-    }
-
-    public void setUserWithTopo(Set<Topo> userWithTopo) {
-        this.userWithTopo = userWithTopo;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                ", commentaires=" + commentaires +
+                ", userWithTopo=" + userWithTopo +
+                ", secteurs=" + secteurs +
+                '}';
     }
 
     public Role getRole() {
@@ -65,6 +76,14 @@ public class User implements Serializable, UserDetails {
         this.role = role;
     }
 
+    public Set<Topo> getUserWithTopo() {
+        return userWithTopo;
+    }
+
+    public void setUserWithTopo(Set<Topo> userWithTopo) {
+        this.userWithTopo = userWithTopo;
+    }
+
     public List<Commentaire> getCommentaires() {
         return commentaires;
     }
@@ -73,8 +92,12 @@ public class User implements Serializable, UserDetails {
         this.commentaires = commentaires;
     }
 
-    public Role getRole(String s) {
-        return role;
+    public Set<Secteur> getSecteurs() {
+        return secteurs;
+    }
+
+    public void setSecteurs(Set<Secteur> secteurs) {
+        this.secteurs = secteurs;
     }
 
     public long getId() {
@@ -147,14 +170,4 @@ public class User implements Serializable, UserDetails {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 }

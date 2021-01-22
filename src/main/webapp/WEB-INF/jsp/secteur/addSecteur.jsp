@@ -5,9 +5,10 @@
 <div class="container">
 
     <h1>Ajout Secteur</h1>
-    <form:form method="POST" modelAttribute="Secteur" action="/addSecteur">
+    <form:form method="POST" modelAttribute="secteur" action="/addSecteur">
 
         <form:input type="hidden" path="site.id"/>
+        <form:input type="hidden" path="user.id"/>
 
         <form:input type="text" path="nameSecteur" class="form-control form-control-sm mb-3" placeholder="nom du secteur"
                     autofocus="true"/>

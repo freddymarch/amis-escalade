@@ -1,22 +1,21 @@
 package com.openclassrooms.amisescalade.service;
 
 import com.openclassrooms.amisescalade.model.Secteur;
-import com.openclassrooms.amisescalade.model.Site;
+import com.openclassrooms.amisescalade.model.User;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface SecteurService {
 
-    List<Secteur> searchAllSecteur();
+    List<Secteur> findAll();
 
-    Secteur siteId(Site site);
+    Secteur findById(Long id);
 
-    Secteur searchSecteurId(Long id);
+    Secteur userId(User user);
 
-    Optional<String> addSecteur(Secteur secteur);
+    void add(Secteur secteur);
 
-    void editSecteur(Secteur secteur);
+    void edit(Secteur secteur);
 
-    void deleteSecteur(Long id);
+    void delete(Long id);
 }

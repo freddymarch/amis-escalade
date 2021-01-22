@@ -2,6 +2,9 @@ package com.openclassrooms.amisescalade.controller;
 
 
 import com.openclassrooms.amisescalade.model.User;
+import com.openclassrooms.amisescalade.service.SecteurService;
+import com.openclassrooms.amisescalade.service.SiteService;
+import com.openclassrooms.amisescalade.service.TopoService;
 import com.openclassrooms.amisescalade.service.UserService;
 import com.openclassrooms.amisescalade.utils.MailUtils;
 import org.slf4j.Logger;
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,8 +25,22 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+    private static final String USER = "user";
+    private static final String SITE = "site";
+    private static final String SECTEUR = "SECTEUR";
+    private static final String TOPO = "topo";
+
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private TopoService topoService;
+
+    @Autowired
+    private SiteService siteService;
+
+    @Autowired
+    private SecteurService secteurService;
 
     @GetMapping("/registration")
     public ModelAndView registration(Model model) {
@@ -56,6 +74,17 @@ public class UserController {
             return new ModelAndView("redirect:/sites");
         }
         return new ModelAndView("/login");
+    }
+
+    @GetMapping(value = "/personalPages")
+    public String personalPages(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
+        logger.info("user connecter : {} ", user.getRole().getAuthority());
+        model.addAttribute(SECTEUR,secteurService.findAll());
+        model.addAttribute("user", user);
+        model.addAttribute(TOPO, topoService.findAll());
+        return "/personalPages";
     }
 
 }

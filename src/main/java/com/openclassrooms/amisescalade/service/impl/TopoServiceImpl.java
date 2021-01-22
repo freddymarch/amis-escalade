@@ -1,5 +1,6 @@
 package com.openclassrooms.amisescalade.service.impl;
 
+import com.openclassrooms.amisescalade.model.Commentaire;
 import com.openclassrooms.amisescalade.model.Site;
 import com.openclassrooms.amisescalade.model.Topo;
 import com.openclassrooms.amisescalade.model.User;
@@ -20,32 +21,28 @@ public class TopoServiceImpl implements TopoService {
     private TopoRepository topoRepository;
 
     @Override
-    public List<Topo> searchAllTopo() {
+    public List<Topo> findAll() {
         return topoRepository.findAll();
     }
 
     @Override
-    public Topo searchTopoid(Long id) {
+    public Topo findById(Long id) {
         Optional<Topo> optionalTopo = topoRepository.findById(id);
-        if (optionalTopo.isPresent()) {
-            return optionalTopo.get();
-        }
-        return null;
+        return optionalTopo.isPresent() ? optionalTopo.get() : null;
     }
 
     @Override
-    public void addTopo(Topo topo) {
+    public void add(Topo topo) {
         topoRepository.save(topo);
     }
 
     @Override
-    public void editTopo(Topo topo) {
+    public void edit(Topo topo) {
         topoRepository.save(topo);
     }
 
     @Override
-    public void deleteTopo(Long topoId) {
+    public void delete(Long topoId) {
         topoRepository.deleteById(topoId);
     }
-
 }

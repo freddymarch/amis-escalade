@@ -21,9 +21,6 @@
     <form:input type="text" path="releaseDate" class="form-control form-control-sm mb-3"
                 placeholder="date"/>
 
-    <form:input type="text" path="userWithTopo" class="form-control form-control-sm mb-3"
-                placeholder="iduser"/>
-
     <input type="submit" class="btn btn-success" value="Ajouter"/>
     <input type="reset" class="btn btn-danger" value="Reset"/>
 

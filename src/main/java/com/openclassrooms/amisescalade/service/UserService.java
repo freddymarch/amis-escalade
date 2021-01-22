@@ -1,5 +1,6 @@
 package com.openclassrooms.amisescalade.service;
 
+import com.openclassrooms.amisescalade.model.Commentaire;
 import com.openclassrooms.amisescalade.model.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -10,10 +11,12 @@ public interface UserService extends UserDetailsService {
 
     Optional<String> addUser(User user);
 
-    List<User> searchAllUser();
+    List<User> findAll();
 
-    User searchUserid(Long id);
+    User findById(Long id);
 
     User findUserByEmail(String email);
+
+    User fundUserByName(String name);
 
 }

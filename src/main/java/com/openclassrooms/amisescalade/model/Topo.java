@@ -32,10 +32,15 @@ public class Topo {
     @Column(name = "C_RELEASE_DATE",length = 50, nullable = false)
     private Date releaseDate;
 
+//    @Column(name = "C_REQUEST_RESERVATION")
+//    private boolean requestReservation;
+//
+//    @Column(name = "C_BOOKING")
+//    private String booking;
+
     @ManyToOne
     @JoinColumn(name = "C_ID_USER_CREATE_TOPO")
     private User userWithTopo;
-
 
     public User getUserWithTopo() {
         return userWithTopo;

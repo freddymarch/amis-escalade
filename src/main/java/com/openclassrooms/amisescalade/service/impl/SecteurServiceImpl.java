@@ -1,7 +1,8 @@
 package com.openclassrooms.amisescalade.service.impl;
 
+import com.openclassrooms.amisescalade.model.Commentaire;
 import com.openclassrooms.amisescalade.model.Secteur;
-import com.openclassrooms.amisescalade.model.Site;
+import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.repository.SecteurRepository;
 import com.openclassrooms.amisescalade.service.SecteurService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,39 +20,35 @@ public class SecteurServiceImpl implements SecteurService {
     SecteurRepository secteurRepository;
 
     @Override
-    public Secteur siteId(Site site) {
+    public Secteur userId(User user) {
         Secteur secteur = new Secteur();
-        secteur.setSite(site);
+        secteur.setUser(user);
         return secteur;
     }
 
     @Override
-    public List<Secteur> searchAllSecteur() {
+    public List<Secteur> findAll() {
         return secteurRepository.findAll();
     }
 
     @Override
-    public Secteur searchSecteurId(Long id) {
+    public Secteur findById(Long id) {
         Optional<Secteur> optionalSecteur = secteurRepository.findById(id);
-        if (optionalSecteur.isPresent()) {
-            return optionalSecteur.get();
-        }
-        return null;
+        return optionalSecteur.isPresent() ? optionalSecteur.get() : null;
     }
 
     @Override
-    public Optional<String> addSecteur(Secteur secteur) {
-        secteurRepository.save(secteur);
-        return Optional.empty();
-    }
-
-    @Override
-    public void editSecteur(Secteur secteur) {
+    public void add(Secteur secteur)  {
         secteurRepository.save(secteur);
     }
 
     @Override
-    public void deleteSecteur(Long id) {
+    public void edit(Secteur secteur) {
+        secteurRepository.save(secteur);
+    }
+
+    @Override
+    public void delete(Long id) {
         secteurRepository.deleteById(id);
     }
 }

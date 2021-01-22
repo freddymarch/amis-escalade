@@ -13,7 +13,8 @@
         <a href="/sites"class="btn btn-secondary">liste des sites </a><br>
         <a href="/login"class="btn btn-secondary">login </a><br>
         <a href="/logout"class="btn btn-secondary">logout </a><br>
-        <a href="/topos"class="btn btn-secondary">liste des topos</a>
+        <a href="/topos"class="btn btn-secondary">liste des topos</a><br>
+        <a href="/personalPages"class="btn btn-secondary">page perso</a>
 
     </div>
 </div>

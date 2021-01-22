@@ -35,29 +35,29 @@ public class CommentaireServiceImpl implements CommentaireService {
     }
 
     @Override
-    public List<Commentaire> searchAllCommentaire() {
+    public List<Commentaire> findAll() {
         return commentaireRepository.findAll();
     }
 
     @Override
-    public Commentaire searchCommentaireById(Long id) {
+    public Commentaire findById(Long id) {
         Optional<Commentaire> optionalCommentaire = commentaireRepository.findById(id);
         return optionalCommentaire.isPresent() ? optionalCommentaire.get() : null;
     }
 
     @Override
-    public void addCommentaire(Commentaire commentaire) {
+    public void add(Commentaire commentaire) {
         // TODO : Vérifier que le commentaire est valide avant de l'insérer en bdd
         commentaireRepository.save(commentaire);
     }
 
     @Override
-    public void editCommentaire(Commentaire commentaire) {
+    public void edit(Commentaire commentaire) {
         commentaireRepository.save(commentaire);
     }
 
     @Override
-    public void deleteCommentaire(Long Id) {
+    public void delete(Long Id) {
         commentaireRepository.deleteById(Id);
     }
 }

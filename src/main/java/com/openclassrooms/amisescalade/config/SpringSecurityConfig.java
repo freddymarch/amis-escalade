@@ -41,9 +41,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .invalidateHttpSession(true)
                 .and()
                 .authorizeRequests()
-//                    .antMatchers("/modifier*/**").authenticated()
-//                    .antMatchers("/ajout*/**").authenticated()
-//                    .antMatchers("/supprimer*/**").authenticated()
+                    .antMatchers("/edit*/**").authenticated()
+                    .antMatchers("/add*/**").authenticated()
+                    .antMatchers("/delete*/**").authenticated()
                 .anyRequest().permitAll();
     }
 

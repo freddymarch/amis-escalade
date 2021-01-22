@@ -40,6 +40,18 @@ public class Secteur {
     @JoinColumn(name = "C_ID_SITE", nullable = false)
     private Site site;
 
+    @ManyToOne
+    @JoinColumn(name = "C_ID_USER", nullable = false)
+    private User users;
+
+    public User getUser() {
+        return users;
+    }
+
+    public void setUser(User user) {
+        this.users = user;
+    }
+
     public Site getSite() {
         return site;
     }
