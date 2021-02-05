@@ -19,7 +19,7 @@
             <TH>releaseDate</TH>
 
 
-        <c:forEach items="${topos}" var="topo">
+        <c:forEach items="${topo}" var="topo">
 
         <tr>
             <td>${topo.name}</td>
@@ -31,6 +31,11 @@
         <th><a href="editTopo/${topo.id}" class="btn btn-success">Modifier</a></th>
             <th><a href="deleteTopo/${topo.id}" class="btn btn-success">suprimer</a></th>
         </sec:authorize>
+
+        <c:if test="${topo.available.equals(true)}">
+            <th><div class="col-sm"><a href="bookingTopo/${topo.id}" class="btn btn-secondary">Reserver Topo</a></div></th>
+        </c:if>
+
             <th><a href="topo/${topo.id}" class="btn btn-success">site</a></th>
         </tr>
         </TR>

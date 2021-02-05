@@ -32,15 +32,54 @@ public class Topo {
     @Column(name = "C_RELEASE_DATE",length = 50, nullable = false)
     private Date releaseDate;
 
-//    @Column(name = "C_REQUEST_RESERVATION")
-//    private boolean requestReservation;
-//
-//    @Column(name = "C_BOOKING")
-//    private String booking;
+    @Column(name = "C_CONFIRM_RESERVATION")
+    private boolean confirmReservation;
+
+    @Column(name = "C_AVAILABLE")
+    private boolean available;
+
+    @Column(name = "C_STATUS", length = 255, nullable = true)
+    private String status;
 
     @ManyToOne
-    @JoinColumn(name = "C_ID_USER_CREATE_TOPO")
+    @JoinColumn(name = "C_ID_USER_RESERVE")
+    private User userReserve;
+
+    @ManyToOne
+    @JoinColumn(name = "C_ID_USER_WITH_TOPO")
     private User userWithTopo;
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public User getUserReserve() {
+        return userReserve;
+    }
+
+    public void setUserReserve(User userReserve) {
+        this.userReserve = userReserve;
+    }
+
+    public boolean isConfirmReservation() {
+        return confirmReservation;
+    }
+
+    public void setConfirmReservation(boolean requestReservation) {
+        this.confirmReservation = requestReservation;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String booking) {
+        this.status = booking;
+    }
 
     public User getUserWithTopo() {
         return userWithTopo;

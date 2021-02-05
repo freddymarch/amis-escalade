@@ -77,7 +77,12 @@
             <th><a href="editTopo/${topo.id}" class="btn btn-success">Modifier</a></th>
             <th><a href="deleteTopo/${topo.id}" class="btn btn-success">suprimer</a></th>
         <th><a href="topo/${topo.id}" class="btn btn-success">site</a></th>
-    </tr>
+    <c:if test="${topo.available.equals(false) && topo.confirmReservation.equals(false)}">
+        <th><div class="col-sm"><a href="acceptReservation/${topo.id}" class="btn btn-secondary">Reserver Topo</a></div></th>
+            <th><a href="refuseReservation/${topo.id}" class="btn btn-danger">Refuser reservation</a></th>
+    </c:if>
+
+</tr>
     </TR>
     </c:forEach>
 </TABLE>

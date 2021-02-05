@@ -6,5 +6,9 @@ create table t_topo
     C_DESCRIPTION varchar(500) null,
     C_PLACES     varchar (100)      null,
     C_RELEASE_DATE  DATE        null,
-    C_ID_USER_CREATE_TOPO int
+    C_ID_USER_WITH_TOPO int,
+    C_ID_USER_RESERVE int,
+    C_STATUS varchar (100),
+    C_AVAILABLE BOOLEAN,
+    C_CONFIRM_RESERVATION BOOLEAN
     );

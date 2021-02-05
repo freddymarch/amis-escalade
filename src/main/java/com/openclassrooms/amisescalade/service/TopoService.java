@@ -1,6 +1,5 @@
 package com.openclassrooms.amisescalade.service;
 
-import com.openclassrooms.amisescalade.model.Site;
 import com.openclassrooms.amisescalade.model.Topo;
 import com.openclassrooms.amisescalade.model.User;
 
@@ -17,5 +16,11 @@ public interface TopoService {
     void edit(Topo topo);
 
     void delete(Long topoId);
+
+    void requestReservation(Topo topo, User user);
+
+    void validationReservation(Topo topo);
+
+    void refusReservation(Topo topo);
 
 }

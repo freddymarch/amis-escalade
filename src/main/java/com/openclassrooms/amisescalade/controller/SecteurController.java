@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/secteur")
+@RequestMapping
 public class SecteurController {
 
     private static final Logger logger = LoggerFactory.getLogger(SecteurController.class);
@@ -38,7 +38,7 @@ public class SecteurController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/add")
+    @GetMapping("/addSecteur")
     public String addSecteur(Model model, @RequestParam Long id) {
         Secteur secteur = new Secteur();
         secteur.setSite(siteService.findById(id));
@@ -46,7 +46,7 @@ public class SecteurController {
         return "/secteur/addSecteur";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/addSecteur")
     public String addSecteur(@ModelAttribute(SECTEUR) Secteur secteur, @ModelAttribute(COMMENTAIRE) Commentaire commentaire) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = (User) authentication.getPrincipal();
@@ -56,19 +56,22 @@ public class SecteurController {
         return "redirect:/sites";
     }
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/editSecteur/{id}")
     public String recoverSecteur(Model model, @PathVariable Long id) {
         model.addAttribute(SECTEUR, secteurService.findById(id));
         return "/secteur/editSecteur";
     }
 
-    @PostMapping("/edit")
+    @PostMapping("/editSecteur")
     public String editSecteur(@ModelAttribute(SECTEUR) Secteur secteur) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = (User) authentication.getPrincipal();
+        secteur.setUser(userService.findUserByEmail(authentication.getName()));
         secteurService.edit(secteur);
         return "redirect:/sites";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/deleteSecteur/{id}")
     public String deleteSecteur(@PathVariable Long id) {
         secteurService.delete(id);
         return "redirect:/sites";

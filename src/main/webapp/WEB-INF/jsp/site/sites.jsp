@@ -22,7 +22,7 @@
               <td>${site.nom}</td>
               <td>${site.pays}</td>
               <td>${site.adresse}</td>
-       <sec:authorize access="hasAnyRole('MEMBER')">
+       <sec:authorize access="hasAnyRole('ADMIN')">
        <th><a href="editSite/${site.id}" class="btn btn-success">Modifier</a></th>
        <th><a href="deleteSite/${site.id}" class="btn btn-success">suprimer</a></th>
        </sec:authorize>

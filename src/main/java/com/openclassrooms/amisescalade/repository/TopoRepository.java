@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface TopoRepository extends JpaRepository<Topo,Long> {
 
+    void deleteById(Long id);
 }

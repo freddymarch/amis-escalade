@@ -33,15 +33,15 @@
         <td>${secteur.equipment}</td>
         <td>${secteur.typeOfSockets}</td>
         <td>${secteur.additionalInformation}</td>
-    <sec:authorize access="hasAnyRole('ADMIN')">
-    <th><a href="/secteur/edit/${secteur.id}" class="btn btn-success">Modifier</a></th>
-        <th><a href="/secteur/delete/${secteur.id}" class="btn btn-success">suprimer</a></th>
+    <sec:authorize access="hasRole('ADMIN')">
+    <th><a href="editSecteur/${secteur.id}" class="btn btn-success">Modifier</a></th>
+        <th><a href="deleteSecteur/${secteur.id}" class="btn btn-success">suprimer</a></th>
     </sec:authorize>
     </tr>
     </TR>
     </c:forEach>
 </TABLE>
-<a href="/secteur/add?id=${site.id}"class="btn btn-secondary">Ajouter un secteur </a><BR>
+<a href="/addSecteur?id=${site.id}"class="btn btn-secondary">Ajouter un secteur </a><BR>
 
 <table border="1">
     <TR>
@@ -57,14 +57,14 @@
         <td>${commentaire.user.username}</td>
         <td>${commentaire.date}</td>
         <td>${commentaire.commentaireText}</td>
-    <sec:authorize access="hasAnyRole('ADMIN')">
-    <th><a href="/commentaire/edit/${commentaire.id}" class="btn btn-success">Modifier</a></th>
-        <th><a href="/commentaire/delete/${commentaire.id}" class="btn btn-success">suprimer</a></th>
+    <sec:authorize access="hasRole('ADMIN')">
+    <th><a href="editCommentaire/${commentaire.id}" class="btn btn-success">Modifier</a></th>
+        <th><a href="deleteCommentaire/${commentaire.id}" class="btn btn-success">suprimer</a></th>
     </sec:authorize>
 </tr>
 </TR>
     </c:forEach>
 </table>
-<a href="/commentaire/add?idSite=${site.id}"class="btn btn-secondary">Ajouter un commentaire </a>
+<a href="/addCommentaire?idSite=${site.id}"class="btn btn-secondary">Ajouter un commentaire </a>
 </body>
 </html>

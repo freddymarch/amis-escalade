@@ -21,5 +21,5 @@ public interface CommentaireService {
 
     void edit(Commentaire commentaire);
 
-    void delete(Long Id);
+    void delete(Long id);
 }

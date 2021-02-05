@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Controller("/site")
+@Controller
 public class SiteController {
     private static final Logger logger = LoggerFactory.getLogger(SiteController.class);
     private static final String SITE = "site";

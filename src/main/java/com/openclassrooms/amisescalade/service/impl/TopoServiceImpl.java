@@ -1,7 +1,6 @@
 package com.openclassrooms.amisescalade.service.impl;
 
-import com.openclassrooms.amisescalade.model.Commentaire;
-import com.openclassrooms.amisescalade.model.Site;
+import com.openclassrooms.amisescalade.enums.StatusTopo;
 import com.openclassrooms.amisescalade.model.Topo;
 import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.repository.TopoRepository;
@@ -44,5 +43,29 @@ public class TopoServiceImpl implements TopoService {
     @Override
     public void delete(Long topoId) {
         topoRepository.deleteById(topoId);
+    }
+
+    @Override
+    public void requestReservation(Topo topo, User user) {
+        topo.setUserReserve(user);
+        topo.setStatus(StatusTopo.IN_PROGRESS.getLabel());
+        topo.setAvailable(false);
+        topoRepository.save(topo);
+    }
+
+    @Override
+    public void validationReservation(Topo topo) {
+        topo.setStatus(StatusTopo.VALIDATE.getLabel());
+        //topo.setAvailable(false);
+        topo.setConfirmReservation(true);
+        topoRepository.save(topo);
+    }
+
+    @Override
+    public void refusReservation(Topo topo) {
+        topo.setStatus(StatusTopo.refuse.getLabel());
+        topo.setAvailable(true);
+        topo.setConfirmReservation(false);
+        topoRepository.save(topo);
     }
 }

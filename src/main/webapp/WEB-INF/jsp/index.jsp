@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -16,8 +17,11 @@
         <a href="/topos"class="btn btn-secondary">liste des topos</a><br>
         <a href="/personalPages"class="btn btn-secondary">page perso</a>
 
+        <c:if test="${topo.available.equals(false) && topo.confirmReservation.equals(false)}">
+            <h1>vous avez une demande de réservation en attente</h1>
+        </c:if>
+
     </div>
 </div>
-
 </body>
 </html>
