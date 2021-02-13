@@ -1,6 +1,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
+<jsp:include page="../header.jsp"/>
+
 <head>
     <title>réservation topo</title>
 </head>
@@ -29,4 +31,5 @@
     </form:form>
 </div>
 </body>
-</html>
+
+<jsp:include page="../footer.jsp"/>

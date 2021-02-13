@@ -1,8 +1,8 @@
 package com.openclassrooms.amisescalade.service.impl;
 
-import com.openclassrooms.amisescalade.model.Secteur;
 import com.openclassrooms.amisescalade.model.Site;
 import com.openclassrooms.amisescalade.repository.CommentaireRepository;
+import com.openclassrooms.amisescalade.repository.SecteurRepository;
 import com.openclassrooms.amisescalade.repository.SiteRepository;
 import com.openclassrooms.amisescalade.repository.UserRepository;
 import com.openclassrooms.amisescalade.service.SiteService;
@@ -18,13 +18,16 @@ import java.util.Optional;
 public class SiteServiceImpl implements SiteService {
 
     @Autowired
-    SiteRepository siteRepository;
+    private SiteRepository siteRepository;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    CommentaireRepository commentaireRepository;
+    private CommentaireRepository commentaireRepository;
+
+    @Autowired
+    private SecteurRepository secteurRepository;
 
     @Override
     public List<Site> findAll() {
@@ -49,7 +52,11 @@ public class SiteServiceImpl implements SiteService {
 
     @Override
     public void delete(Long id) {
-        siteRepository.deleteById(id);
+        Site site = siteRepository.findById(id).get();
+
+        commentaireRepository.deleteBySiteId(id);
+//        secteurRepository.deleteBySiteId(id);
+        siteRepository.delete(site);
     }
 
 }

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
-<html>
+
+<jsp:include page="header.jsp"/>
 <head>
     <title>registration</title>
     <meta charset='utf-8'>
@@ -34,4 +34,4 @@
     </form:form>
 </div>
 </body>
-</html>
+<jsp:include page="footer.jsp"/>

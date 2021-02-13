@@ -49,7 +49,7 @@ public class SiteController {
     }
 
     @GetMapping("/site/{id}")
-    public String secteur(Model model, @PathVariable Long id , String name) {
+    public String secteur(Model model, @PathVariable Long id, String name) {
         model.addAttribute(USER, userService.fundUserByName(name));
         model.addAttribute(SITE, siteService.findById(id));
         model.addAttribute(SECTEUR, secteurService.findAll());

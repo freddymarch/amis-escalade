@@ -34,7 +34,7 @@ public class TopoController {
 
     @GetMapping("/addTopo")
     public String addTopo(Model model, Authentication authentication) {
-        model.addAttribute(TOPO,new Topo());
+        model.addAttribute(TOPO, new Topo());
         model.addAttribute(UTILISATEUR, authentication);
         return "/topo/addTopo";
     }
@@ -66,17 +66,17 @@ public class TopoController {
     }
 
     @GetMapping("/bookingTopo/{topoId}")
-    public String bookingTopo(Model model,@PathVariable Long topoId){
-        model.addAttribute(TOPO,topoService.findById(topoId));
+    public String bookingTopo(Model model, @PathVariable Long topoId) {
+        model.addAttribute(TOPO, topoService.findById(topoId));
         return "/topo/bookingTopo";
     }
 
     @PostMapping("/bookingTopo")
-    public String bookingTopo(Model model,@ModelAttribute(TOPO) Topo topo) {
+    public String bookingTopo(Model model, @ModelAttribute(TOPO) Topo topo) {
         Topo requestReservation = topoService.findById(topo.getId());
         User user = userService.findUserByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
         topo.setAvailable(false);
-        topoService.requestReservation(requestReservation,user);
+        topoService.requestReservation(requestReservation, user);
         return ("/confirmReservation");
     }
 
@@ -101,7 +101,7 @@ public class TopoController {
     @GetMapping("/deleteTopo/{topoId}")
     public String supprimerTopo(Model model, @PathVariable Long topoId) {
         topoService.delete(topoId);
-        return "redirect:/topo/topos";
+        return "redirect:/topos";
     }
 
     @GetMapping("/refuseReservation/{topoId}")

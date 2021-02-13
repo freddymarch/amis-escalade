@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
+<jsp:include page="header.jsp"/>
+
 <head>
     <title>Confirmation réservation</title>
 </head>
@@ -8,4 +10,5 @@
 
 <a href="/"class="btn btn-secondary">Retour au menu principal</a><br>
 </body>
-</html>
+
+<jsp:include page="footer.jsp"/>

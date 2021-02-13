@@ -9,4 +9,6 @@ public interface CommentaireRepository extends JpaRepository<Commentaire, Long> 
 
     void deleteById(Long id);
 
+    void deleteBySiteId(Long siteId);
+
 }

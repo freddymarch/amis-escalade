@@ -1,0 +1,10 @@
+INSERT INTO t_client(
+	C_NAME,C_DESCRIPTION,C_PLACES,C_RELEASE_DATE
+) VALUES
+('ADMIN','ADMIN','ADMIN@gmail.com','ADMIN','1'),
+('Voisin','Vincent-Sébastien','Vincent-Sébastien@gmail.com','voisin','2'),
+('Lacroix','Maurice','Maurice-Lacroix@gmail.com','maurice','2'),
+('Bigot','Josette','Josette-78@gmail.com','Josette78','josette','2'),
+('Fernandes','Xavier','Xavier-Fernandes@gmail.com','xavier','2'),
+('Cordier-Pereira','Roger','Cordier-Pereira@gmail.com','roger','2')
+;

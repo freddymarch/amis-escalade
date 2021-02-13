@@ -31,10 +31,10 @@ public class Site {
     @Column(name = "C_SITE_ADRESSE", length = 100, nullable = false)
     private String adresse;
 
-    @OneToMany(mappedBy = "site", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "site", cascade = CascadeType.REMOVE)
     private List<Secteur> secteurs;
 
-    @OneToMany(mappedBy = "site", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "site", cascade = CascadeType.REMOVE)
     private List<Commentaire> commentaires;
 
     public List<Commentaire> getCommentaires() {
@@ -97,14 +97,4 @@ public class Site {
         this.adresse = adresse;
     }
 
-    @Override
-    public String toString() {
-        return "Site{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", tag='" + tag + '\'' +
-                ", pays='" + pays + '\'' +
-                ", adresse='" + adresse + '\'' +
-                '}';
-    }
 }

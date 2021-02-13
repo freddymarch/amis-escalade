@@ -24,6 +24,9 @@ public class Secteur {
     @Column(name = "C_VOIES")
     private String voies;
 
+    @Column(name = "C_COTATION")
+    private String cotation;
+
     @Column(name = "C_HEIGHT_MAX")
     private String heightMax;
 
@@ -43,6 +46,14 @@ public class Secteur {
     @ManyToOne
     @JoinColumn(name = "C_ID_USER", nullable = false)
     private User users;
+
+    public String getCotation() {
+        return cotation;
+    }
+
+    public void setCotation(String cotation) {
+        this.cotation = cotation;
+    }
 
     public User getUser() {
         return users;
@@ -116,16 +127,12 @@ public class Secteur {
         this.additionalInformation = additionalInformation;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", nameSecteur='" + nameSecteur + '\'' +
-                ", voies='" + voies + '\'' +
-                ", heightMax='" + heightMax + '\'' +
-                ", equipment='" + equipment + '\'' +
-                ", heightMax='" + heightMax + '\'' +
-                ", additionalInformation='" + additionalInformation + '\'' +
-                '}';
+    public User getUsers() {
+        return users;
     }
+
+    public void setUsers(User users) {
+        this.users = users;
+    }
+
 }

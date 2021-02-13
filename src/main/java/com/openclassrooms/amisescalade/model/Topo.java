@@ -129,15 +129,4 @@ public class Topo {
         this.releaseDate = releaseDate;
     }
 
-    @Override
-    public String toString() {
-        return "Topo{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", places='" + places + '\'' +
-                ", releaseDate=" + releaseDate +
-                ", userWithTopo=" + userWithTopo +
-                '}';
-    }
 }

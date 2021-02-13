@@ -2,6 +2,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<jsp:include page="../header.jsp"/>
+
 <div class="container">
 
     <h1>Ajout Secteur</h1>
@@ -10,10 +12,13 @@
         <form:input type="hidden" path="site.id"/>
         <form:input type="hidden" path="user.id"/>
 
-        <form:input type="text" path="nameSecteur" class="form-control form-control-sm mb-3" placeholder="nom du secteur"
+        <form:input type="text" path="nameSecteur" class="form-control form-control-sm mb-3"
+                    placeholder="nom du secteur"
                     autofocus="true"/>
 
         <form:input type="text" path="voies" class="form-control form-control-sm mb-3" placeholder="voies"/>
+
+        <form:input type="text" path="cotation" class="form-control form-control-sm mb-3" placeholder="cotation"/>
 
         <form:input type="text" path="heightMax" class="form-control form-control-sm mb-3"
                     placeholder="hauteur max"/>
@@ -32,3 +37,5 @@
 
     </form:form>
 </div>
+
+<jsp:include page="../footer.jsp"/>

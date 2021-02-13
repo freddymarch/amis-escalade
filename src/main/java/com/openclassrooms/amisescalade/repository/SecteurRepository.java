@@ -12,4 +12,6 @@ public interface SecteurRepository extends JpaRepository<Secteur, Integer> {
     Optional<Secteur> findById(long id);
 
     void deleteById(Long id);
+
+    void deleteBySiteId(Long siteId);
 }

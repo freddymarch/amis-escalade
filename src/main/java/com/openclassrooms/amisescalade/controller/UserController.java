@@ -77,11 +77,11 @@ public class UserController {
     }
 
     @GetMapping(value = "/personalPages")
-    public String personalPages(Model model){
+    public String personalPages(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = (User) authentication.getPrincipal();
         logger.info("user connecter : {} ", user.getRole().getAuthority());
-        model.addAttribute(SECTEUR,secteurService.findAll());
+        model.addAttribute(SECTEUR, secteurService.findAll());
         model.addAttribute("user", user);
         model.addAttribute(TOPO, topoService.findAll());
         return "/personalPages";
