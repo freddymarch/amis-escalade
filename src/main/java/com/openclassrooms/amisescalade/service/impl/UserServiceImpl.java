@@ -1,6 +1,5 @@
 package com.openclassrooms.amisescalade.service.impl;
 
-import com.openclassrooms.amisescalade.model.Topo;
 import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.repository.RoleRepository;
 import com.openclassrooms.amisescalade.repository.UserRepository;
@@ -18,6 +17,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+import static com.openclassrooms.amisescalade.enums.EnumRole.MEMBER;
+
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -26,17 +27,18 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+
     @Autowired
     private RoleRepository roleRepository;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public Optional<String> addUser(User user) {
+    public void addUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(roleRepository.findByCode("Member"));
+        user.setRole(roleRepository.findByCode(MEMBER.getCode()));
         userRepository.save(user);
-        return Optional.empty();
     }
 
     @Override
@@ -59,7 +61,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User fundUserByName(String name) {
         Optional<User> optionalUser = userRepository.findByName(name);
-        return null;
+        return optionalUser.isPresent() ? optionalUser.get() : null;
     }
 
     @Override
@@ -71,5 +73,4 @@ public class UserServiceImpl implements UserService {
         }
         return user;
     }
-
 }

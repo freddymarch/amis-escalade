@@ -1,8 +1,6 @@
 package com.openclassrooms.amisescalade.service.impl;
 
-import com.openclassrooms.amisescalade.model.Commentaire;
 import com.openclassrooms.amisescalade.model.Secteur;
-import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.repository.SecteurRepository;
 import com.openclassrooms.amisescalade.service.SecteurService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +15,7 @@ import java.util.Optional;
 public class SecteurServiceImpl implements SecteurService {
 
     @Autowired
-    SecteurRepository secteurRepository;
-
-    @Override
-    public Secteur userId(User user) {
-        Secteur secteur = new Secteur();
-        secteur.setUser(user);
-        return secteur;
-    }
+    private SecteurRepository secteurRepository;
 
     @Override
     public List<Secteur> findAll() {
@@ -38,7 +29,7 @@ public class SecteurServiceImpl implements SecteurService {
     }
 
     @Override
-    public void add(Secteur secteur)  {
+    public void add(Secteur secteur) {
         secteurRepository.save(secteur);
     }
 

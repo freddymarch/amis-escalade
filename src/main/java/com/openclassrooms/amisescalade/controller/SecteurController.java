@@ -2,7 +2,6 @@ package com.openclassrooms.amisescalade.controller;
 
 import com.openclassrooms.amisescalade.model.Commentaire;
 import com.openclassrooms.amisescalade.model.Secteur;
-import com.openclassrooms.amisescalade.model.Site;
 import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.service.SecteurService;
 import com.openclassrooms.amisescalade.service.SiteService;
@@ -49,7 +48,6 @@ public class SecteurController {
     @PostMapping("/addSecteur")
     public String addSecteur(@ModelAttribute(SECTEUR) Secteur secteur, @ModelAttribute(COMMENTAIRE) Commentaire commentaire) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) authentication.getPrincipal();
         secteur.setUser(userService.findUserByEmail(authentication.getName()));
         logger.info("Création d'un nouveau secteur : {}", secteur);
         secteurService.add(secteur);
@@ -65,7 +63,6 @@ public class SecteurController {
     @PostMapping("/editSecteur")
     public String editSecteur(@ModelAttribute(SECTEUR) Secteur secteur) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) authentication.getPrincipal();
         secteur.setUser(userService.findUserByEmail(authentication.getName()));
         secteurService.edit(secteur);
         return "redirect:/sites";

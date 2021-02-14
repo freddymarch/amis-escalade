@@ -36,17 +36,17 @@ public class User implements Serializable, UserDetails {
     @Column(name = "C_PASSWORD", length = 100, nullable = false)
     private String password;
 
-    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "C_ROLE_ID", nullable = false)
     private Role role;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Commentaire> commentaires;
 
-    @OneToMany(mappedBy = "userWithTopo",cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "userWithTopo", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Topo> userWithTopo;
 
-    @OneToMany(mappedBy = "users",cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Secteur> secteurs;
 
 

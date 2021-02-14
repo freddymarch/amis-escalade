@@ -1,9 +1,7 @@
 package com.openclassrooms.amisescalade.controller;
 
-
 import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.service.SecteurService;
-import com.openclassrooms.amisescalade.service.SiteService;
 import com.openclassrooms.amisescalade.service.TopoService;
 import com.openclassrooms.amisescalade.service.UserService;
 import com.openclassrooms.amisescalade.utils.MailUtils;
@@ -17,7 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,7 +23,6 @@ public class UserController {
 
     private static final Logger logger = LoggerFactory.getLogger(UserController.class);
     private static final String USER = "user";
-    private static final String SITE = "site";
     private static final String SECTEUR = "SECTEUR";
     private static final String TOPO = "topo";
 
@@ -37,19 +33,16 @@ public class UserController {
     private TopoService topoService;
 
     @Autowired
-    private SiteService siteService;
-
-    @Autowired
     private SecteurService secteurService;
 
     @GetMapping("/registration")
     public ModelAndView registration(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute(USER, new User());
         return new ModelAndView("/registration");
     }
 
     @PostMapping("/registration")
-    public ModelAndView addUser(Model model, @ModelAttribute("user") User user) {
+    public ModelAndView addUser(Model model, @ModelAttribute(USER) User user) {
 
         User existingUser = userService.findUserByEmail(user.getEmail());
         if (existingUser != null) {
@@ -58,7 +51,7 @@ public class UserController {
             return new ModelAndView("/registration");
         }
         if (!MailUtils.isValid(user.getEmail())) {
-            model.addAttribute("message", "l'adresse mail n'est pas valide");
+            model.addAttribute("message", "Adresse mail invalide");
             return new ModelAndView("/registration");
         }
         logger.info(" UN nouveau membre : " + user.getName() + " " + user.getLastName() + " " + user.getEmail() + " " + user.getPassword());
@@ -68,7 +61,7 @@ public class UserController {
 
     @GetMapping(value = "/login")
     public ModelAndView loginGet(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute(USER, new User());
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             return new ModelAndView("redirect:/sites");
@@ -82,9 +75,8 @@ public class UserController {
         User user = (User) authentication.getPrincipal();
         logger.info("user connecter : {} ", user.getRole().getAuthority());
         model.addAttribute(SECTEUR, secteurService.findAll());
-        model.addAttribute("user", user);
+        model.addAttribute(USER, user);
         model.addAttribute(TOPO, topoService.findAll());
         return "/personalPages";
     }
-
 }

@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    <p>${message}</p>
+    <p style="color: red">${message}</p>
     <h1>Formulaires</h1>
 
     <form:form method="POST" modelAttribute="user" action="/registration">
