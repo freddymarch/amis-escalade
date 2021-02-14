@@ -55,7 +55,7 @@ public class SiteServiceImpl implements SiteService {
         Site site = siteRepository.findById(id).get();
 
         commentaireRepository.deleteBySiteId(id);
-//        secteurRepository.deleteBySiteId(id);
+        secteurRepository.deleteBySiteId(id);
         siteRepository.delete(site);
     }
 

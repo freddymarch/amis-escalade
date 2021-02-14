@@ -41,8 +41,8 @@
                     <td>${secteur.typeOfSockets}</td>
                     <td>${secteur.additionalInformation}</td>
                     <sec:authorize access="hasRole('ADMIN')">
-                        <th><a href="editSecteur/${secteur.id}" class="btn btn-success">Modifier</a></th>
-                        <th><a href="deleteSecteur/${secteur.id}" class="btn btn-success">suprimer</a></th>
+                        <th><a href="../editSecteur/${secteur.id}" class="btn btn-success">Modifier</a></th>
+                        <th><a href="../deleteSecteur/${secteur.id}" class="btn btn-danger">suprimer</a></th>
                     </sec:authorize>
                 </tr>
             </c:forEach>
@@ -77,8 +77,8 @@
                 <td>${commentaire.date}</td>
                 <td>${commentaire.commentaireText}</td>
                 <sec:authorize access="hasRole('ADMIN')">
-                    <th><a href="editCommentaire/${commentaire.id}" class="btn btn-success">Modifier</a></th>
-                    <th><a href="deleteCommentaire/${commentaire.id}" class="btn btn-success">suprimer</a></th>
+                    <th><a href="../editCommentaire/${commentaire.id}" class="btn btn-success">Modifier</a></th>
+                    <th><a href="../deleteCommentaire/${commentaire.id}" class="btn btn-danger">suprimer</a></th>
                 </sec:authorize>
             </tr>
         </c:forEach>
