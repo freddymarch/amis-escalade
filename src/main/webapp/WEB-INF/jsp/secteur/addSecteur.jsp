@@ -12,7 +12,7 @@
         <form:input type="hidden" path="site.id"/>
         <form:input type="hidden" path="user.id"/>
 
-        <form:input type="text" path="nameSecteur" class="form-control form-control-sm mb-3"
+        <form:input type="text" required="required" path="nameSecteur" class="form-control form-control-sm mb-3"
                     placeholder="nom du secteur"
                     autofocus="true"/>
 
