@@ -10,15 +10,15 @@
     <form:form method="POST" modelAttribute="site" action="/addSite">
 
 
-        <form:input type="text" path="nom" class="form-control form-control-sm mb-3" placeholder="Nom"
+        <form:input type="text" required="required" path="nom" class="form-control form-control-sm mb-3" placeholder="Nom"
                     autofocus="true"/>
 
-        <form:input type="text" path="pays" class="form-control form-control-sm mb-3" placeholder="Pays"/>
+        <form:input type="text" required="required" path="pays" class="form-control form-control-sm mb-3" placeholder="Pays"/>
 
-        <form:input type="text" path="adresse" class="form-control form-control-sm mb-3"
+        <form:input type="text" required="required" path="adresse" class="form-control form-control-sm mb-3"
                     placeholder="Adresse"/>
 
-        <form:input type="text" path="tag" class="form-control form-control-sm mb-3"
+        <form:input type="text" required="required" path="tag" class="form-control form-control-sm mb-3"
                     placeholder="tag"/>
 
         <input type="submit" class="btn btn-success" value="Ajouter"/>

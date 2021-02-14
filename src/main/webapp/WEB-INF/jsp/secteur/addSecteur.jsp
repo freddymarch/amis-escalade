@@ -16,20 +16,20 @@
                     placeholder="nom du secteur"
                     autofocus="true"/>
 
-        <form:input type="text" path="voies" class="form-control form-control-sm mb-3" placeholder="voies"/>
+        <form:input type="text" required="required" path="voies" class="form-control form-control-sm mb-3" placeholder="voies"/>
 
-        <form:input type="text" path="cotation" class="form-control form-control-sm mb-3" placeholder="cotation"/>
+        <form:input type="text" required="required" path="cotation" class="form-control form-control-sm mb-3" placeholder="cotation"/>
 
-        <form:input type="text" path="heightMax" class="form-control form-control-sm mb-3"
+        <form:input type="text" required="required" path="heightMax" class="form-control form-control-sm mb-3"
                     placeholder="hauteur max"/>
 
-        <form:input type="text" path="equipment" class="form-control form-control-sm mb-3"
+        <form:input type="text" required="required" path="equipment" class="form-control form-control-sm mb-3"
                     placeholder="équipement"/>
 
-        <form:input type="text" path="typeOfSockets" class="form-control form-control-sm mb-3"
+        <form:input type="text" required="required" path="typeOfSockets" class="form-control form-control-sm mb-3"
                     placeholder="type de roche"/>
 
-        <form:input type="text" path="additionalInformation" class="form-control form-control-sm mb-3"
+        <form:input type="text" required="required" path="additionalInformation" class="form-control form-control-sm mb-3"
                     placeholder="Information additionnelle"/>
 
         <input type="submit" class="btn btn-success" value="Ajouter"/>

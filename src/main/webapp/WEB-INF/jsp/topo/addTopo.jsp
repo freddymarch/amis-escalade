@@ -12,15 +12,15 @@
 <form:form method="POST" modelAttribute="topo" action="/addTopo">
 
 
-    <form:input type="text" path="name" class="form-control form-control-sm mb-3" placeholder="Nom"
+    <form:input type="text" required="required" path="name" class="form-control form-control-sm mb-3" placeholder="Nom"
                 autofocus="true"/>
 
-    <form:input type="text" path="description" class="form-control form-control-sm mb-3" placeholder="description"/>
+    <form:input type="text" required="required" path="description" class="form-control form-control-sm mb-3" placeholder="description"/>
 
-    <form:input type="text" path="places" class="form-control form-control-sm mb-3"
+    <form:input type="text" required="required" path="places" class="form-control form-control-sm mb-3"
                 placeholder="lieux"/>
 
-    <form:input type="text" path="releaseDate" class="form-control form-control-sm mb-3"
+    <form:input type="text" required="required" path="releaseDate" class="form-control form-control-sm mb-3"
                 placeholder="date"/>
 
     <input type="submit" class="btn btn-success" value="Ajouter"/>
