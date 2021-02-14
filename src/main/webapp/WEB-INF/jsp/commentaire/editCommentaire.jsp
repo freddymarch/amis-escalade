@@ -17,10 +17,10 @@
 
     <form:input type="hidden" path="id"/>
 
-    <form:input type="text" path="commentaireText" class="form-control form-control-sm mb-3" placeholder="commentaire"
+    <form:input type="text" required="required" path="commentaireText" class="form-control form-control-sm mb-3" placeholder="commentaire"
                 autofocus="true"/>
 
-    <form:input type="text" path="date" class="form-control form-control-sm mb-3" placeholder="date"
+    <form:input type="text" required="required" path="date" class="form-control form-control-sm mb-3" placeholder="date"
                 autofocus="true"/>
 
     <input type="submit" class="btn btn-success" value="Modifier"/>

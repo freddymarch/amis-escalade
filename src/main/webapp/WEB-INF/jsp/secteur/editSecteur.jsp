@@ -13,23 +13,23 @@
 
         <form:input type="hidden" path="id"/>
 
-        <form:input type="text" path="nameSecteur" class="form-control form-control-sm mb-3" placeholder="nameSecteur"
+        <form:input type="text" required="required" path="nameSecteur" class="form-control form-control-sm mb-3" placeholder="nameSecteur"
                     autofocus="true"/>
 
-        <form:input type="text" path="voies" class="form-control form-control-sm mb-3" placeholder="voies"/>
+        <form:input type="text" required="required" path="voies" class="form-control form-control-sm mb-3" placeholder="voies"/>
 
-        <form:input type="text" path="cotation" class="form-control form-control-sm mb-3" placeholder="cotation"/>
+        <form:input type="text" required="required" path="cotation" class="form-control form-control-sm mb-3" placeholder="cotation"/>
 
-        <form:input type="text" path="heightMax" class="form-control form-control-sm mb-3"
+        <form:input type="text" required="required" path="heightMax" class="form-control form-control-sm mb-3"
                     placeholder="heightMax"/>
 
-        <form:input type="text" path="equipment" class="form-control form-control-sm mb-3"
+        <form:input type="text" required="required" path="equipment" class="form-control form-control-sm mb-3"
                     placeholder="equipment"/>
 
-        <form:input type="text" path="typeOfSockets" class="form-control form-control-sm mb-3"
+        <form:input type="text" required="required" path="typeOfSockets" class="form-control form-control-sm mb-3"
                     placeholder="typeOfSockets"/>
 
-        <form:input type="text" path="additionalInformation" class="form-control form-control-sm mb-3"
+        <form:input type="text" required="required" path="additionalInformation" class="form-control form-control-sm mb-3"
                     placeholder="additionalInformation"/>
 
         <input type="submit" class="btn btn-success" value="Modifier"/>
