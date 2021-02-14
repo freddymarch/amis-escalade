@@ -9,6 +9,7 @@ import com.openclassrooms.amisescalade.service.CommentaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,36 +29,32 @@ public class CommentaireServiceImpl implements CommentaireService {
     }
 
     @Override
-    public Commentaire userId(User user) {
-        Commentaire commentaire = new Commentaire();
-        commentaire.setUser(user);
-        return commentaire;
-    }
-
-    @Override
     public List<Commentaire> findAll() {
         return commentaireRepository.findAll();
     }
 
     @Override
     public Commentaire findById(Long id) {
+        Assert.notNull(id, "Id commentaire must not be null");
         Optional<Commentaire> optionalCommentaire = commentaireRepository.findById(id);
         return optionalCommentaire.isPresent() ? optionalCommentaire.get() : null;
     }
 
     @Override
     public void add(Commentaire commentaire) {
-        // TODO : Vérifier que le commentaire est valide avant de l'insérer en bdd
+        Assert.notNull(commentaire, "commentaire must not be null");
         commentaireRepository.save(commentaire);
     }
 
     @Override
     public void edit(Commentaire commentaire) {
+        Assert.notNull(commentaire, "commentaire must not be null");
         commentaireRepository.save(commentaire);
     }
 
     @Override
-    public void delete(Long Id) {
-        commentaireRepository.deleteById(Id);
+    public void delete(Long id) {
+        Assert.notNull(id, "Id commentaire must not be null");
+        commentaireRepository.deleteById(id);
     }
 }

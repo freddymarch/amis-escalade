@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.Date;
 
 @Entity
 @Table(name = "T_COMMENTAIRE")
@@ -19,8 +18,8 @@ public class Commentaire {
     @Column(name = "C_ID")
     private long id;
 
-    @Column(name = "C_DATE", length = 50, nullable = false)
-    private Date date;
+    @Column(name = "C_DATE", nullable = false)
+    private String date;
 
     @Column(name = "C_COMMENTAIRE")
     private String commentaireText;
@@ -41,11 +40,11 @@ public class Commentaire {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

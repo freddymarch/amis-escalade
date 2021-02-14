@@ -5,7 +5,7 @@ import com.openclassrooms.amisescalade.model.Site;
 
 import java.util.List;
 
-public interface SiteDAO {
+public interface SiteDao {
 
     List<Site> findSiteByCritere(Research research);
 }

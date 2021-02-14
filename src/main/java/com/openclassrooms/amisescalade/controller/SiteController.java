@@ -2,7 +2,6 @@ package com.openclassrooms.amisescalade.controller;
 
 import com.openclassrooms.amisescalade.model.Commentaire;
 import com.openclassrooms.amisescalade.model.Site;
-import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.service.CommentaireService;
 import com.openclassrooms.amisescalade.service.SecteurService;
 import com.openclassrooms.amisescalade.service.SiteService;
@@ -100,7 +99,6 @@ public class SiteController {
     @PostMapping("/addCommentaire")
     public String addCommentaire(@ModelAttribute(COMMENTAIRE) Commentaire commentaire) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        User user = (User) authentication.getPrincipal();
         commentaire.setUser(userService.findUserByEmail(authentication.getName()));
         commentaireService.add(commentaire);
         return "redirect:/sites";

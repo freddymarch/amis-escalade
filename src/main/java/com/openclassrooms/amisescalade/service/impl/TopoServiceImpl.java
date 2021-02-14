@@ -63,7 +63,7 @@ public class TopoServiceImpl implements TopoService {
 
     @Override
     public void refusReservation(Topo topo) {
-        topo.setStatus(StatusTopo.refuse.getLabel());
+        topo.setStatus(StatusTopo.REFUSE.getLabel());
         topo.setAvailable(true);
         topo.setConfirmReservation(false);
         topoRepository.save(topo);

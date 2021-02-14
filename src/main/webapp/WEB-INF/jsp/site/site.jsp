@@ -25,7 +25,7 @@
                 <th>equipment</th>
                 <th>type de roche</th>
                 <TH>Information additionnelle</TH>
-                <sec:authorize access="hasAnyRole('ADMIN')">
+                <sec:authorize access="hasRole('ADMIN')">
                     <th>Modification</th>
                     <th>Suppression</th>
                 </sec:authorize>
@@ -62,9 +62,7 @@
             <th>utilisateur</th>
             <th>date</th>
             <th>commentaire</th>
-            <th>modifier</th>
-            <th>supprimer</th>
-            <sec:authorize access="hasAnyRole('ADMIN')">
+            <sec:authorize access="hasRole('ADMIN')">
                 <th>Modification</th>
                 <th>Suppression</th>
             </sec:authorize>

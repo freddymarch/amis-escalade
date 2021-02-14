@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.Date;
 
 @Entity
 @Table(name = "T_TOPO")
@@ -26,11 +25,11 @@ public class Topo {
     @Column(name = "C_DESCRIPTION", length = 500, nullable = false)
     private String description;
 
-    @Column(name = "C_PLACES",length = 100, nullable = false)
+    @Column(name = "C_PLACES", length = 100, nullable = false)
     private String places;
 
-    @Column(name = "C_RELEASE_DATE",length = 50, nullable = false)
-    private Date releaseDate;
+    @Column(name = "C_RELEASE_DATE", length = 10, nullable = false)
+    private String releaseDate;
 
     @Column(name = "C_CONFIRM_RESERVATION")
     private boolean confirmReservation;
@@ -121,11 +120,11 @@ public class Topo {
         this.places = places;
     }
 
-    public Date getReleaseDate() {
+    public String getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(Date releaseDate) {
+    public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 

@@ -4,7 +4,7 @@ public enum StatusTopo {
 
     IN_PROGRESS("In progress"),
     VALIDATE("Validate"),
-    refuse("refuse");
+    REFUSE("refuse");
 
     private String label;
 
@@ -14,10 +14,6 @@ public enum StatusTopo {
 
     public String getLabel() {
         return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
     }
 
 }
