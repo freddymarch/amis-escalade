@@ -2,7 +2,7 @@ package com.openclassrooms.amisescalade.repository.impl;
 
 import com.openclassrooms.amisescalade.model.Research;
 import com.openclassrooms.amisescalade.model.Site;
-import com.openclassrooms.amisescalade.repository.SiteDao;
+import com.openclassrooms.amisescalade.repository.SiteDAO;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -13,7 +13,7 @@ import java.util.List;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 @Repository
-public class SiteDaoImpl implements SiteDao {
+public class SiteDaoImpl implements SiteDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
