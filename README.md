@@ -1,8 +1,6 @@
 # amis-escalade
 # Titre du projet
 
-![forthebadge](https://forthebadge.com/images/badges/gluten-free.svg)
-
 Avec lâ€™objectif de fÃ©dÃ©rer les licenciÃ©s, lâ€™association â€œâ€‹Les amis de lâ€™escaladeâ€
 souhaite dÃ©velopper sa prÃ©sence en ligne. Ã€ ce titre, plusieurs axes dâ€™amÃ©lioration
 ont Ã©tÃ© identifiÃ©s dont la crÃ©ation dâ€™un site communautaire.
@@ -20,14 +18,12 @@ Ce qu'il est requis pour commencer avec votre projet...
 
 - Java
 - Spring Boot
-- Base de donnÃ©e PostgresSql
+- Base de donnÃ©e MySQL
 - JSP
 
 ### Installation
-Pour installer PostGres vous pouvez vous referer au guide : https://www.veremes.com/installation-postgresql-windows.
-Une fois installÃ© vous devrais ouvrir cmd.exe sous Windows et entrer ces informations.
 
-1 - Creation d'une bdd et d'un utilisateur propriÃ©taire de la bdd psql -U postgres -a -f donnÃ©es.sql.
+1 - Creation d'une bdd et d'un utilisateur propriÃ©taire de la bdd psql -U MySQL -a -f donnÃ©es.sql.
 
 Renseigner le mot de passe de l'utilisateur postgres (dans mon cas, c'est admin).
 
