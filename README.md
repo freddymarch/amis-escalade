@@ -1,16 +1,12 @@
 # amis-escalade
 # Titre du projet
 
-Avec lâ€™objectif de fÃ©dÃ©rer les licenciÃ©s, lâ€™association â€œâ€‹Les amis de lâ€™escaladeâ€
-souhaite dÃ©velopper sa prÃ©sence en ligne. Ã€ ce titre, plusieurs axes dâ€™amÃ©lioration
-ont Ã©tÃ© identifiÃ©s dont la crÃ©ation dâ€™un site communautaire.
-Ce site aura pour but la mise en relation et le partage dâ€™informations. Il permettra
-de donner de la visibilitÃ© Ã  lâ€™association afin dâ€™encourager des grimpeurs
-indÃ©pendants Ã  y adhÃ©rer.
+Avec l’objectif de fédérer les licenciés, l’association “Les amis de l’escalade” souhaite développer sa présence en ligne. À ce titre, plusieurs axes d’amélioration ont été identifiés dont la création d’un site communautaire. Ce site aura pour but la mise en relation et le partage d’informations. Il permettra de donner de la visibilité à l’association afin d’encourager des grimpeurs indépendants à y adhérer. 
+
 
 ## Pour commencer
 
-Entrez ici les instructions pour bien dÃ©buter avec votre projet...
+Entrez ici les instructions pour bien débuter avec votre projet...
 
 ### PrÃ©-requis
 
@@ -18,7 +14,7 @@ Ce qu'il est requis pour commencer avec votre projet...
 
 - Java
 - Spring Boot
-- Base de donnÃ©e MySQL
+- Base de donnée MySQL
 - JSP
 
 ### Installation
