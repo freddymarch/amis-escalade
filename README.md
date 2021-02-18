@@ -19,9 +19,9 @@ Ce qu'il est requis pour commencer avec votre projet...
 
 ### Installation
 
-1 - Creation d'une bdd et d'un utilisateur propriÃ©taire de la bdd psql -U MySQL -a -f donnÃ©es.sql.
+1 - Creation d'une bdd et d'un utilisateur propriétaire de la bdd psql -U MySQL -a -f données.sql..
 
-Renseigner le mot de passe de l'utilisateur postgres (dans mon cas, c'est admin).
+Renseigner le mot de passe de l'utilisateur MySQL (dans mon cas, c'est amis-escalade).
 
 Ensuite Installer le serveur TomCat, un tutoriel est disponible : http://objis.com/tutoriel-tomcat-n1-installation-tomcat-8/
 
