@@ -64,4 +64,4 @@ Allez sur l'URL : http://localhost:8080/amis-escalade-0.0.1-SNAPSHOT/
 ## Auteurs
 
 Listez le(s) auteur(s) du projet ici !
-* **Yann CABERAS** _alias_ [yanncb](https://github.com/yanncb)
+* **Freddy Marchandise** _alias_ [freddymarch]
