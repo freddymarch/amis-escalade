@@ -2,7 +2,6 @@ package com.openclassrooms.amisescalade.controller;
 
 import com.openclassrooms.amisescalade.model.Commentaire;
 import com.openclassrooms.amisescalade.model.Secteur;
-import com.openclassrooms.amisescalade.model.User;
 import com.openclassrooms.amisescalade.service.SecteurService;
 import com.openclassrooms.amisescalade.service.SiteService;
 import com.openclassrooms.amisescalade.service.UserService;
@@ -20,6 +19,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * Controller MVC pour gérer les fonctionnalités d'un secteur.
+ *
+ */
 @Controller
 @RequestMapping
 public class SecteurController {
@@ -37,6 +40,12 @@ public class SecteurController {
     @Autowired
     private UserService userService;
 
+    /**
+     * Initialisation de la page d'ajout d'un secteur.
+     *
+     * @param model
+     * @return
+     */
     @GetMapping("/addSecteur")
     public String addSecteur(Model model, @RequestParam Long id) {
         Secteur secteur = new Secteur();
@@ -45,6 +54,12 @@ public class SecteurController {
         return "/secteur/addSecteur";
     }
 
+    /**
+     * Ajout d'un nouveau secteur.
+     *
+     * @param secteur nouveau secteur à ajouter.
+     * @return
+     */
     @PostMapping("/addSecteur")
     public String addSecteur(@ModelAttribute(SECTEUR) Secteur secteur, @ModelAttribute(COMMENTAIRE) Commentaire commentaire) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -54,12 +69,25 @@ public class SecteurController {
         return "redirect:/sites";
     }
 
+    /**
+     * Initialisation de la page de modification d'un secteur.
+     *
+     * @param model
+     * @param id identifiant du site à modifier.
+     * @return
+     */
     @GetMapping("/editSecteur/{id}")
     public String recoverSecteur(Model model, @PathVariable Long id) {
         model.addAttribute(SECTEUR, secteurService.findById(id));
         return "/secteur/editSecteur";
     }
 
+    /**
+     * Modification d'un secteur.
+     *
+     * @param secteur site à modifier.
+     * @return
+     */
     @PostMapping("/editSecteur")
     public String editSecteur(@ModelAttribute(SECTEUR) Secteur secteur) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -68,6 +96,12 @@ public class SecteurController {
         return "redirect:/sites";
     }
 
+    /**
+     * Suppression d'un secteur à partir de son identifiant.
+     *
+     * @param id identifiant du secteur à supprimer.
+     * @return
+     */
     @GetMapping("/deleteSecteur/{id}")
     public String deleteSecteur(@PathVariable Long id) {
         secteurService.delete(id);

@@ -1,0 +1,99 @@
+create table t_role
+(
+    C_ID    int auto_increment
+        primary key,
+    C_CODE  varchar(50) not null,
+    C_LABEL varchar(50) not null,
+    constraint C_CODE
+        unique (C_CODE)
+);
+
+create table t_site
+(
+    C_ID            int auto_increment
+        primary key,
+    C_SITE_NAME     varchar(50)  null,
+    C_SITE_TAG      varchar(100) null,
+    C_SITE_LOC_PAYS varchar(100) null,
+    C_SITE_ADRESSE  varchar(100) null
+);
+
+create table t_user
+(
+    C_ID       int auto_increment
+        primary key,
+    C_NAME     varchar(50)  null,
+    C_LASTNAME varchar(100) null,
+    C_EMAIL    varchar(50)  null,
+    C_PASSWORD varchar(100) null,
+    C_ROLE_ID  int          null,
+    constraint t_user_ibfk_1
+        foreign key (C_ROLE_ID) references t_role (C_ID),
+    constraint FK7ir4idtqo8c6ixic2g8i43pu2
+        foreign key (C_ROLE_ID) references t_role (C_ID)
+);
+
+create table t_commentaire
+(
+    C_ID          int auto_increment
+        primary key,
+    C_DATE        date         null,
+    C_COMMENTAIRE varchar(500) null,
+    C_ID_SITE     int          null,
+    C_ID_USER     int          null,
+    constraint t_commentaire_ibfk_1
+        foreign key (C_ID_SITE) references t_site (C_ID)
+            on update cascade on delete cascade,
+    constraint t_commentaire_ibfk_2
+        foreign key (C_ID_USER) references t_user (C_ID)
+);
+
+create index FKqtakb8mgtq4ry4ijcful3w4v2
+    on t_commentaire (C_ID_USER);
+
+create table t_secteur
+(
+    C_ID                     int auto_increment
+        primary key,
+    C_NAME_SECTEUR           varchar(50)  null,
+    C_VOIES                  varchar(100) null,
+    C_HEIGHT_MAX             varchar(100) null,
+    C_EQUIPMENT              varchar(100) null,
+    C_TYPE_OF_SOCKETS        varchar(100) null,
+    C_ADDITIONAL_INFORMATION varchar(100) null,
+    C_ID_SITE                int          null,
+    C_ID_User                int          null,
+    C_COTATION               varchar(100) null,
+    constraint t_secteur_ibfk_1
+        foreign key (C_ID_SITE) references t_site (C_ID)
+            on update cascade on delete cascade,
+    constraint t_secteur_ibfk_2
+        foreign key (C_ID_User) references t_user (C_ID)
+);
+
+create index FK93yqkxksutag7ka0q9t1kddqo
+    on t_secteur (C_ID_User);
+
+create table t_topo
+(
+    C_ID                  int auto_increment
+        primary key,
+    C_NAME                varchar(50)  null,
+    C_DESCRIPTION         varchar(500) null,
+    C_PLACES              varchar(100) null,
+    C_RELEASE_DATE        date         null,
+    C_ID_USER_WITH_TOPO   int          null,
+    C_ID_USER_RESERVE     int          null,
+    C_STATUS              varchar(100) null,
+    C_AVAILABLE           tinyint(1)   null,
+    C_CONFIRM_RESERVATION tinyint(1)   null,
+    constraint t_topo_ibfk_1
+        foreign key (C_ID_USER_WITH_TOPO) references t_user (C_ID),
+    constraint FKfcojk2dxh79nl2emxcslbyfbb
+        foreign key (C_ID_USER_WITH_TOPO) references t_user (C_ID),
+    constraint t_topo_ibfk_2
+        foreign key (C_ID_USER_RESERVE) references t_user (C_ID),
+    constraint FKp2wd3vt4nu9mj2c356a3asohi
+        foreign key (C_ID_USER_RESERVE) references t_user (C_ID)
+);
+

@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+/**
+ * Controller MVC pour gérer les fonctionnalités d'une recherche.
+ *
+ */
 @Controller
 public class ResearchController {
 
@@ -17,13 +21,24 @@ public class ResearchController {
     @Autowired
     private ResearchService researchService;
 
+    /**
+     * Initialisation de la page de recherche.
+     *
+     * @param
+     * @return
+     */
     @GetMapping("/research")
     public String research(Model model) {
         model.addAttribute(RESEARCH, new Research());
         return "/research";
     }
 
-
+    /**
+     * recherche d'un site ou secteur.
+     *
+     * @param
+     * @return
+     */
     @PostMapping("/research")
     public String research(Model model, @ModelAttribute("research") Research research) {
         model.addAttribute("resultatSites", researchService.researchSites(research));

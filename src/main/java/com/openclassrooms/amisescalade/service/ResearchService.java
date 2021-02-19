@@ -7,6 +7,11 @@ import java.util.List;
 
 public interface ResearchService {
 
+    /**
+     * Recherche des information demander par l'utilisateur.
+     *
+     * @param research
+     */
     List<Site> researchSites(Research research);
 
 }

@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * Controller MVC pour gérer les fonctionnalités d'un utilisateur.
+ *
+ */
 @Controller
 public class UserController {
 
@@ -35,12 +39,24 @@ public class UserController {
     @Autowired
     private SecteurService secteurService;
 
+    /**
+     * Initialisation de la page d'ajout d'un nouvel utilisateur.
+     *
+     * @param model
+     * @return
+     */
     @GetMapping("/registration")
     public ModelAndView registration(Model model) {
         model.addAttribute(USER, new User());
         return new ModelAndView("/registration");
     }
 
+    /**
+     * Ajout d'un nouvel utilisateur et vérification de l'adresse mail.
+     *
+     * @param user nouveau user ajouter.
+     * @return
+     */
     @PostMapping("/registration")
     public ModelAndView addUser(Model model, @ModelAttribute(USER) User user) {
 
@@ -59,6 +75,13 @@ public class UserController {
         return new ModelAndView("/messageSignup");
     }
 
+
+    /**
+     * Identification de l'utilisateur.
+     *
+     * @param
+     * @return
+     */
     @GetMapping(value = "/login")
     public ModelAndView loginGet(Model model) {
         model.addAttribute(USER, new User());
@@ -69,6 +92,12 @@ public class UserController {
         return new ModelAndView("/login");
     }
 
+    /**
+     * Page personnelle de l'utilisateur.
+     *
+     * @param
+     * @return
+     */
     @GetMapping(value = "/personalPages")
     public String personalPages(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
