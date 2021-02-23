@@ -23,8 +23,6 @@ Ce qu'il est requis pour commencer avec votre projet...
 
 Renseigner le mot de passe de l'utilisateur MySQL (dans mon cas, c'est amis-escalade).
 
-Renseigner le mot de passe de l'utilisateur MySQL (dans mon cas, c'est amis-escalade).
-
 Ensuite Installer le serveur TomCat, un tutoriel est disponible : http://objis.com/tutoriel-tomcat-n1-installation-tomcat-8/
 
 Configuration : Se rendre dans le fichier conf/tomcat-users.xml, ajouter
