@@ -49,10 +49,11 @@
             <tr>
                 <td><a href="/site/${site.id}">${site.nom}</a></td>
                 <td>${site.pays}</td>
-                <td><c:forEach items="${site.secteurs}" var="secteur">
-                    <c:forEach items="${secteur.cotation}" var="secteur">
+                <td>
+                    <c:forEach items="${site.secteurs}" var="secteur">
+                        ${secteur.cotation}
                     </c:forEach>
-                </c:forEach></td>
+                </td>
                 <td> ${site.nbSecteurs()}</td>
             </tr>
         </c:forEach>
