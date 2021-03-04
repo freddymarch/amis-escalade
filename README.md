@@ -20,9 +20,9 @@ JSP
 
 # Installation
 
-1 - Creation d'une bdd et d'un utilisateur propriétaire de la bdd psql -U postgres -a -f données.sql.
+1 - Creation d'une bdd et d'un utilisateur propriétaire de la bdd mysql -U MYSQL -a -f données.sql.
 
-Renseigner le mot de passe de l'utilisateur postgres (dans mon cas, c'est admin).
+Renseigner le mot de passe de l'utilisateur mysqlgit add  (dans mon cas, c'est admin).
 
 Ensuite Installer le serveur TomCat, un tutoriel est disponible : http://objis.com/tutoriel-tomcat-n1-installation-tomcat-8/
 
