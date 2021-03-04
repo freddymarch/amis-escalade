@@ -1,15 +1,15 @@
 # amis-escalade
 
-#Contexte
+# Contexte
 Avec l’objectif de fédérer les licenciés, l’association “​Les amis de l’escalade” souhaite développer sa présence en ligne.
 À ce titre, plusieurs axes d’amélioration ont été identifiés dont la création d’un site communautaire. Ce site aura pour but la mise en relation et le partage d’informations.
 Il permettra de donner de la visibilité à l’association afin d’encourager des grimpeurs indépendants à y adhérer.
 
-#Pour commencer
+# Pour commencer
 
 Entrez ici les instructions pour bien débuter avec votre projet...
 
-#Pré-requis
+# Pré-requis
 
 Ce qu'il est requis pour commencer avec votre projet...
 
@@ -18,7 +18,7 @@ Spring Boot
 Base de donnée PostgresSql
 JSP
 
-#Installation
+# Installation
 
 1 - Creation d'une bdd et d'un utilisateur propriétaire de la bdd psql -U postgres -a -f données.sql.
 
@@ -41,11 +41,11 @@ Dans la zone « Message» du manager, il est indiqué la réussite ou l’échec
 
 Une autre manière de faire est de déposer le fichier war directement dans le dossier webapps du dossier d’installation de Tomcat. Tomcat déploiera automatiquement l’application issue du fichier war.
 
-#Démarrage
+# Démarrage
 
 Allez sur l'URL : http://localhost:8080/amis-escalade-0.0.1-SNAPSHOT/
 
-#Auteurs
+# Auteurs
 Listez le(s) auteur(s) du projet ici !
 
 Freddy Marchandise
