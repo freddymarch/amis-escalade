@@ -13,10 +13,10 @@ Entrez ici les instructions pour bien débuter avec votre projet...
 
 Ce qu'il est requis pour commencer avec votre projet...
 
-Java
-Spring Boot
-Base de donnée PostgresSql
-JSP
+* Java
+* Spring Boot
+* Base de donnée PostgresSql
+* JSP
 
 # Installation
 
