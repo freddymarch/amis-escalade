@@ -6,14 +6,14 @@
 <head>
     <title>site</title>
 </head>
-<h2>Secteurs :</h2>
+<h2>Sites</h2>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
     <h1>Informations du site d'escalade "${site.nom}"</h1>
 </div>
 
 <div class="col-sm-12">
-    <h2>Sites</h2>
+    <h2>Secteurs :</h2>
     <div class="table-responsive">
 
         <table class="table table-bordered">
@@ -56,6 +56,7 @@
 </div>
 
 <div class="table-responsive">
+    <h2>Commentaire :</h2>
 
     <table class="table table-bordered">
         <tr>
