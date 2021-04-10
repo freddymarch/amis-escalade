@@ -24,23 +24,9 @@ Renseigner le mot de passe de l'utilisateur mysql(dans mon cas, c'est admin).
 
 Ensuite Installer le serveur TomCat, un tutoriel est disponible : http://objis.com/tutoriel-tomcat-n1-installation-tomcat-8/
 
-Configuration : Se rendre dans le fichier conf/tomcat-users.xml, ajouter un utilisateur ```manager``` et un utilisateur ```admin```
+Copier le war dans le répertoire webapps et le renommer ROOT.war 
 
-```
-<role rolename="manager-gui"/>
-<role rolename="admin"/>
-<user username="manager" password="manager" roles="manager-gui"/>
-<user username="admin" password="admin" roles="admin,manager-gui"/>
-```
-avant de déployer le fichier war supprimer les fichies dans le fichier webapps, coller le war et le renommer ROOT.war 
-
-Se rendre sur l'URL : http://localhost:8080/manager Il suffit de spécifier l’emplacement de votre fichier war de manière à l’uploader sur votre serveur tomcat qui le déploiera automatiquement. Depuis le manager tomcat, dans la zone de déploiement « WAR file to deploy » comme ci-dessous :
-
-– dans la zone «Select WAR file to upload» cliquer sur le bouton «Parcourir»; – une fenêtre de sélection de fichier s’ouvre; – sélectionner le fichier war à déployer; – valider; – enfin cliquer sur le bouton « Deploy» dans la page du manager.
-
-Dans la zone « Message» du manager, il est indiqué la réussite ou l’échec du déploiement. Ceci est la manière la plus simple pour déployer un war sous tomcat.
-
-Une autre manière de faire est de déposer le fichier war directement dans le dossier webapps du dossier d’installation de Tomcat. Tomcat déploiera automatiquement l’application issue du fichier war.
+Se rendre sur l'URL : http://localhost:8080
 
 # Démarrage
 
