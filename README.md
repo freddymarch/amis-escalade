@@ -32,7 +32,7 @@ Configuration : Se rendre dans le fichier conf/tomcat-users.xml, ajouter un util
 <user username="manager" password="manager" roles="manager-gui"/>
 <user username="admin" password="admin" roles="admin,manager-gui"/>
 ```
-avant de déployer le fichier war surpimer les fichier dans le fichier webapps, coler le war et le renomer ROOT.war 
+avant de déployer le fichier war supprimer les fichies dans le fichier webapps, coller le war et le renommer ROOT.war 
 
 Se rendre sur l'URL : http://localhost:8080/manager Il suffit de spécifier l’emplacement de votre fichier war de manière à l’uploader sur votre serveur tomcat qui le déploiera automatiquement. Depuis le manager tomcat, dans la zone de déploiement « WAR file to deploy » comme ci-dessous :
 
